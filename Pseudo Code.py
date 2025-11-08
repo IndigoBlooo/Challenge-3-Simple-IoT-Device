@@ -1,12 +1,14 @@
 #!/bin/bash
 
+from umqtt.robust import MQTTClient
 import network
 import time
+import machine
 
 #----Network ID Information-----
 
-ssid = "******"
-password = "*****"
+ssid = "Digital Native Cyber City"
+password = "dnc-wireless"
 
 #-------------------------------
 
@@ -105,6 +107,10 @@ def conntect_mqtt():
     client.subscribe(TOPIC_COMMAND)
     print("Subscribed to:", TOPIC_COMMAND)
 
+    client.subscribe(TOPIC_STATUS)
+    print("Subscribed to:", TOPIC_STATUS)
+
+
 #-------- Reconneting Logic ---------
 def reconnect():
     print("Reconnecting...")
@@ -123,7 +129,7 @@ except Exception as e:
 print("Running main loop...\n")
 
 
-#----- The main MQTT Loop --------
+#----- The Main MQTT Loop --------
 while True:
     try:
         client.check_msg() #This will check 4 pending messages
@@ -132,3 +138,9 @@ while True:
     except OSError as e:
         print(f"Error connecting or subscribing via MQTT: {e}")
         reconnect()
+
+except Exception as e:
+    print(f"An unexpected error occurred:{e}")
+
+finally:
+    print("MQTT Loop finished or an error occurred.")
