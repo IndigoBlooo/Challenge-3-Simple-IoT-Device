@@ -5,8 +5,8 @@ import machine
 
 #----Network ID Information-----
 
-SSID = "digital native cyber city"
-PASSWORD = "dnc-wireless"
+SSID = "*********"
+PASSWORD = "*******"
 
 #-------------------------------
 
