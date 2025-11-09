@@ -7,8 +7,8 @@ import ubinascii
 
 #----Network ID Information-----
 
-SSID = "EbonHawk"
-PASSWORD = "Charlie1497!!"
+SSID = "******"
+PASSWORD = "********"
 
 #-------------------------------
 
